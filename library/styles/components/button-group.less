@@ -4,9 +4,6 @@
 
   .by-btn {
     border-radius: 0;
-    span {
-      vertical-align: middle;
-    }
   }
 
   &-normal {
@@ -26,13 +23,26 @@
     .by-btn {
       height: @default-height - .5rem;
       font-size: @basic-fsize - .125rem;
+      padding: 0 @base-gap * 6;
     }
   }
 
   // direction
   &-horizontal {
-    .by-btn + .by-btn {
-      border-left-color: transparent;
+    .by-btn {
+      border-right-width: 0;
+    }
+  
+    .by-btn:hover,
+    .by-btn:focus,
+    .by-btn:active {
+      border-right-width: @border-width;
+    }
+    
+    .by-btn:hover + .by-btn,
+    .by-btn:focus + .by-btn,
+    .by-btn:active + .by-btn {
+      border-left-width: 0;
     }
 
     .by-btn:first-of-type {
@@ -43,16 +53,26 @@
     .by-btn:last-of-type {
       border-top-right-radius: @border-radius;
       border-bottom-right-radius: @border-radius;
+      border-right-width: @border-width;
     }
   }
 
   &-vertical {
     .by-btn {
       display: block;
+      border-bottom-width: 0;
     }
 
-    .by-btn + .by-btn {
-      border-top-color: transparent;
+    .by-btn:hover,
+    .by-btn:focus,
+    .by-btn:active {
+      border-bottom-width: @border-width;
+    }
+    
+    .by-btn:hover + .by-btn,
+    .by-btn:focus + .by-btn,
+    .by-btn:active + .by-btn {
+      border-top-width: 0;
     }
 
     .by-btn:first-of-type {
@@ -63,6 +83,7 @@
     .by-btn:last-of-type {
       border-bottom-left-radius: @border-radius;
       border-bottom-right-radius: @border-radius;
+      border-bottom-width: @border-width;
     }
   }
 

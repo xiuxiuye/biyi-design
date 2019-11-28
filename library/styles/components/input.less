@@ -1,0 +1,48 @@
+.by-input {
+  position: relative;
+
+  input {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: @border-width solid @border-color;
+    border-radius: @border-radius;
+    box-sizing: border-box;
+    padding: 0 @base-gap * 4;
+    font-size: @basic-fsize;
+  }
+
+  input:hover {
+    border-color: @sub-color;
+  }
+
+  input:focus {
+    outline: 0;
+    border-color: @primary-color;
+  }
+
+  &-size-default {
+    height: @default-height;
+  }
+
+  &-size-large {
+    height: @default-height + .5rem;
+    input {
+      font-size: @basic-fsize + .125rem;
+    }
+  }
+
+  &-size-small {
+    height: @default-height - .5rem;
+  }
+
+  &-clear {
+    position: absolute;
+    top: 50%;
+    right: @base-gap * 4;
+    transform: translateY(-50%);
+    color: @sub-color;
+    cursor: pointer;
+  }
+} 

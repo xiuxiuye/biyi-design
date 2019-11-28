@@ -1,5 +1,6 @@
 .by-btn {
   // 初始化btn
+  display: inline-block;
   background-color: transparent;
   border: @border-width solid @border-color;
   border-radius: @border-radius;
@@ -10,6 +11,11 @@
   text-align: center;
   padding: 0 @base-gap * 8;
   vertical-align: middle;
+
+  span {
+    display: inline-block;
+    vertical-align: middle;
+  }
 
   // btn-size
   &-normal {
@@ -24,14 +30,11 @@
   &-small {
     height: @default-height - .5rem;
     font-size: @basic-fsize - .125rem;
+    padding: 0 @base-gap * 6;
   }
 
   // btn-theme
-  &-default:focus {
-    border-color: lighten(@primary-color, 20%) !important;
-    color: @primary-color;
-  }
-
+  &-default:focus,
   &-default:hover {
     border-color: lighten(@primary-color, 20%) !important;
     color: @primary-color;

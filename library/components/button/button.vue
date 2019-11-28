@@ -51,7 +51,7 @@ export default {
     },
     loadingIcon: {
       type: String,
-      default: 'fas-circle-notch'
+      default: 'spinner-b'
     },
     loadingAction: {
       type: String,

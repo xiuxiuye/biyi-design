@@ -1,7 +1,8 @@
 <template>
   <i
   :class="classes"
-  :style="styles"></i>
+  :style="styles"
+  @click="handleClick"></i>
 </template>
 
 <script>
@@ -14,7 +15,7 @@ export default {
     },
     size: {
       type: [String, Number],
-      default: 14
+      default: 16
     },
     color: {
       type: String
@@ -56,11 +57,16 @@ export default {
     },
     styles () {
       return {
-        fontSize: `${this.size}px`,
+        fontSize: `${this.size / 16}rem`,
         color: this.color,
         backgroundColor: this.bgColor,
         transform: `rotate(${this.rotation}deg)`
       }
+    }
+  },
+  methods: {
+    handleClick () {
+      this.$emit('click')
     }
   }
 }

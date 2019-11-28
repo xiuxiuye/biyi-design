@@ -1,7 +1,5 @@
 import './styles/index.less'
 import Icon from './components/icon'
-import IconGroup from './components/icon-group'
-import IconText from './components/icon-text'
 import Button from './components/button'
 import ButtonGroup from './components/button-group'
 import Row from './components/grid/row'
@@ -11,8 +9,6 @@ import Input from './components/form/input'
 
 const components = {
   Icon,
-  IconGroup,
-  IconText,
   Button,
   ButtonGroup,
   Row,
@@ -35,8 +31,6 @@ export default install
 
 export {
   Icon,
-  IconGroup,
-  IconText,
   Button,
   ButtonGroup,
   Row,

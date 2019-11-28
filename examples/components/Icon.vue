@@ -48,7 +48,10 @@
     <hr>
     <h4>All Icons</h4>
     <template v-for="icon in icons">
-      <by-icon :type="icon['font_class']" :size="24" color="black" />
+      <span class="icon-wrapper">
+        <by-icon :type="icon['font_class']" :size="24" color="black" />
+        <span>{{icon['font_class']}}</span>
+      </span>
     </template>
   </div>
 </template>
@@ -65,5 +68,15 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
+.icon-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  border: 1px solid #eee;
+  text-align: center;
+  margin: 8px;
+  padding: 4px;
+  span {
+    font-size: 14px;
+  }
+}
 </style>
