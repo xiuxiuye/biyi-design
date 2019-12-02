@@ -21,10 +21,10 @@
     <by-button type="warning" plain>Default</by-button>
     <hr>
     <h4>Circle</h4>
-    <by-button type="primary" circle>A</by-button>
-    <by-button type="success" circle>B</by-button>
-    <by-button type="error" circle size="large">C</by-button>
-    <by-button type="warning" circle size="small">D</by-button>
+    <by-button type="primary" circle icon="apple-fill"></by-button>
+    <by-button type="success" circle icon="twitter"></by-button>
+    <by-button type="error" circle size="large" icon="QQ"></by-button>
+    <by-button type="warning" circle size="small" icon="wechat-fill"></by-button>
     <hr>
     <h4>Round</h4>
     <by-button size="large" round>Default</by-button>

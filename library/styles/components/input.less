@@ -1,16 +1,15 @@
 .by-input {
   position: relative;
+  font-size: @basic-fsize;
 
   input {
     display: inline-block;
     width: 100%;
     height: 100%;
-    padding: 0;
     border: @border-width solid @border-color;
     border-radius: @border-radius;
-    box-sizing: border-box;
     padding: 0 @base-gap * 4;
-    font-size: @basic-fsize;
+    font-size: inherit;
   }
 
   input:hover {
@@ -28,21 +27,164 @@
 
   &-size-large {
     height: @default-height + .5rem;
-    input {
-      font-size: @basic-fsize + .125rem;
-    }
+    font-size: @basic-fsize + .125rem;
   }
 
   &-size-small {
     height: @default-height - .5rem;
   }
 
-  &-clear {
+  &-suffix {
+    input {
+      padding-right: @base-gap * 14;
+    }
+
+    &-icon {
+      position: absolute;
+      top: 50%;
+      right: @base-gap * 4;
+      transform: translateY(-50%);
+      color: @sub-color;
+      cursor: pointer;
+    }
+  }
+
+  &-prefix {
+    input {
+      padding-left: @base-gap * 14;
+    }
+
+    &-icon {
+      position: absolute;
+      top: 50%;
+      left: @base-gap * 4;
+      transform: translateY(-50%);
+      color: @sub-color;
+      cursor: pointer;
+    }
+  }
+
+  &-prepend,
+  &-append {
+    display: flex;
+  }
+
+  &-prepend {
+    input {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &-wrap {
+      border-top-left-radius: @border-radius;
+      border-bottom-left-radius: @border-radius;
+      padding: 0 @base-gap * 6;
+      display: flex;
+      align-items: center;
+      border-width: @border-width 0 @border-width @border-width;
+      border-style: solid;
+      border-color: @border-color;
+      background-color: @background-color;
+      font-size: inherit;
+    }
+  }
+
+  &-append {
+    input {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &-wrap {
+      border-top-right-radius: @border-radius;
+      border-bottom-right-radius: @border-radius;
+      padding: 0 @base-gap * 6;
+      display: flex;
+      align-items: center;
+      border-width: @border-width @border-width @border-width 0;
+      border-style: solid;
+      border-color: @border-color;
+      background-color: @background-color;
+      font-size: inherit;
+    }
+
+    &-enter-button-wrap {
+      background-color: @primary-color;
+      color: white;
+      border-width: 0;
+      cursor: pointer;
+    }
+  }
+
+  .word-limit {
     position: absolute;
     top: 50%;
     right: @base-gap * 4;
     transform: translateY(-50%);
-    color: @sub-color;
-    cursor: pointer;
+    font-size: @basic-fsize - .125rem;
+
+    &-width-suffix {
+      right: @base-gap * 14;
+    }
   }
-} 
+
+  &-disabled {
+    input {
+      cursor: not-allowed;
+      color: @disabled-color;
+      background-color: @background-color;
+    }
+
+    input:hover {
+      border-color: @border-color;
+    }
+  }
+}
+
+.by-textarea {
+  position: relative;
+  font-size: @basic-fsize;
+  font-family: @font-family;
+
+  textarea {
+    display: inline-block;
+    width: 100%;
+    border: @border-width solid @border-color;
+    border-radius: @border-radius;
+    padding: @base-gap * 4;
+    font-size: inherit;
+    font-family: inherit;
+  }
+
+  textarea:hover {
+    border-color: @sub-color;
+  }
+
+  textarea:focus {
+    outline: 0;
+    border-color: @primary-color;
+  }
+
+  &-disabled {
+    textarea {
+      cursor: not-allowed;
+      color: @disabled-color;
+      background-color: @background-color;
+    }
+
+    textarea:hover {
+      border-color: @border-color;
+    }
+  }
+
+  .word-limit {
+    position: absolute;
+    bottom: @base-gap * 4;
+    right: @base-gap * 4;
+    font-size: @basic-fsize - .125rem;
+
+    &-width-suffix {
+      right: @base-gap * 14;
+    }
+  }
+}
