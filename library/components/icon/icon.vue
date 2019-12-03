@@ -8,7 +8,7 @@
 <script>
 const prefix = 'by-icon'
 export default {
-  name: 'by-icon',
+  name: prefix,
   props: {
     type: {
       type: String

@@ -7,7 +7,7 @@
 <script>
 const prefix = 'by-row'
 export default {
-  name: 'by-row',
+  name: prefix,
   props: {
     type: {
       type: String,

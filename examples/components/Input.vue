@@ -14,6 +14,12 @@
     <h4>Clearable</h4>
     <by-input v-model="mesg" clearable style="width: 300px"></by-input>
     <hr>
+    <h4>Password</h4>
+    <by-input v-model="mesg" type="password" password style="width: 300px"></by-input>
+    <br>
+    <by-input v-model="mesg" type="password" prefix-icon="lock" password style="width: 300px">
+    </by-input>
+    <hr>
     <h4>SuffixIcon</h4>
     <by-input v-model="mesg" style="width: 300px" suffix-icon="search" @click="iconClick"></by-input>
     <br>
@@ -116,7 +122,7 @@
     <br>
     <hr>
     <h4>placeholder</h4>
-    <by-input style="width: 300px">
+    <by-input style="width: 300px" placeholder="请输入内容">
     </by-input>
     <br>
     <hr>

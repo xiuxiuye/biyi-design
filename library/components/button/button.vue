@@ -10,9 +10,9 @@
 
 <script>
 import byIcon from '../icon'
-const prefix = 'by-btn'
+const prefix = 'by-button'
 export default {
-  name: 'by-button',
+  name: prefix,
   props: {
     type: {
       type: String,

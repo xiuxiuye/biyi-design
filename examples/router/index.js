@@ -29,6 +29,11 @@ const routes = [
     path: '/input',
     name: 'input',
     component: () => import('../components/Input.vue')
+  },
+  {
+    path: '/radio',
+    name: 'radio',
+    component: () => import('../components/Radio.vue')
   }
 ]
 

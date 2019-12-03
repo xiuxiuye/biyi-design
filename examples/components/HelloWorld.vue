@@ -7,7 +7,8 @@
     <router-link to="button">Button</router-link>
     <hr>
     <router-link to="input">Input</router-link>
-    <by-icon></by-icon>
+    <hr>
+    <router-link to="radio">Radio</router-link>
   </div>
 </template>
 

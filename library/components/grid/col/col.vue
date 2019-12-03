@@ -7,7 +7,7 @@
 <script>
 const prefix = 'by-col'
 export default {
-  name: 'by-col',
+  name: prefix,
   props: {
     span: {
       type: [Number, String]

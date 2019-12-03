@@ -1,0 +1,138 @@
+.by-radio {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  input {
+    display: none;
+  }
+
+  &-copy {
+    position: relative;
+    display: inline-block;
+    margin-right: @base-gap * 4;
+    border: @border-width solid @border-color;
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &-copy:hover {
+    border-color: @primary-color;
+  }
+
+  &-copy:after {
+    position: absolute;
+    top: @default-height / 8 - @border-width;
+    left: @default-height / 8 - @border-width;
+    transform: scale(0);
+    opacity: 0;
+    content: '';
+    display: block;
+    width: @default-height / 4;
+    height: @default-height / 4;
+    background-color: @primary-color;
+    border-radius: 50%;
+  }
+
+  &-size-default {
+    font-size: @basic-fsize;
+
+    .by-radio-copy {
+      width: @default-height / 2;
+      height: @default-height / 2;
+    }
+
+    .by-radio-copy:after {
+      width: @default-height / 4;
+      height: @default-height / 4;
+      top: @default-height / 8 - @border-width;
+      left: @default-height / 8 - @border-width;
+    }
+  }
+
+  &-size-small {
+    font-size: @basic-fsize - 0.125rem;
+
+    .by-radio-copy {
+      width: @default-height / 2 - .25rem;
+      height: @default-height / 2 - .25rem;
+    }
+
+    .by-radio-copy:after {
+      width: @default-height / 4 - .125rem;
+      height: @default-height / 4 - .125rem;
+      top: @default-height / 8 - @border-width * 2;
+      left: @default-height / 8 - @border-width * 2;
+    }
+  }
+
+  &-size-large {
+    font-size: @basic-fsize + .125rem;
+
+    .by-radio-copy {
+      width: @default-height / 2 + .25rem;
+      height: @default-height / 2 + .25rem;
+    }
+
+    .by-radio-copy:after {
+      width: @default-height / 4 + .125rem;
+      height: @default-height / 4 + .125rem;
+      top: @default-height / 8;
+      left: @default-height / 8;
+    }
+  }
+
+  &-checked {
+    .by-radio-copy {
+      border-color: @primary-color;
+    }
+
+    .by-radio-copy:after {
+      opacity: 1;
+      transform: scale(1);
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+
+    .by-radio-copy {
+      background-color: @background-color;
+      border-color: @border-color;
+    }
+
+    .by-radio-copy:after {
+      background-color: @disabled-color;
+    }
+  }
+
+  &-border {
+    border: @border-width solid @border-color;
+    border-radius: @border-radius;
+    padding: @base-gap * 3 @base-gap * 6;
+
+    &-checked {
+      border-color: @primary-color;
+    }
+
+    &-disabled {
+      border-color: @border-color;
+      background-color: @background-color;
+    }
+  }
+}
+
+.by-radio-group {
+  display: inline-block;
+  .by-radio {
+    margin-right: @base-gap * 4;
+  }
+
+  &-vertical {
+    .by-radio {
+      display: block;
+      margin: @base-gap * 4 0;
+    }
+  }
+}

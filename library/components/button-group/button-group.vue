@@ -5,9 +5,9 @@
 </template>
 
 <script>
-const prefix = 'by-btn-group'
+const prefix = 'by-button-group'
 export default {
-  name: 'by-button-group',
+  name: prefix,
   props: {
     size: {
       type: String,

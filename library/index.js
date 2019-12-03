@@ -5,21 +5,25 @@ import ButtonGroup from './components/button-group'
 import Row from './components/grid/row'
 import Col from './components/grid/col'
 import Input from './components/form/input'
+import Radio from './components/form/radio'
+import RadioGroup from './components/form/radio-group'
 
 
-const components = {
+const components = [
   Icon,
   Button,
   ButtonGroup,
   Row,
   Col,
-  Input
-}
+  Input,
+  Radio,
+  RadioGroup
+]
 
 const install = function (Vue, opts = {}) {
-  Object.keys(components).forEach((key) => {
-    Vue.component(`by${key}`, components[key])
-  })
+  for (let component of components) {
+    Vue.component(component.name, component)
+  }
 }
 
 // auto install

@@ -11,7 +11,7 @@
         </span>
         <input
           ref="input"
-          :type="type"
+          :type="inputType"
           :value="value"
           :maxlength="maxlength"
           :disabled="disabled"
@@ -31,6 +31,7 @@
         <span :class="wordLimitClasses" v-if="showWordLimit">{{value.length}}/{{maxlength}}</span>
         <span class="by-input-suffix-icon" v-if="isSuffix" @click="clickIcon('suffix')">
           <by-icon v-if="isClearable" type="close-circle-fill" @click="clearInput"></by-icon>
+          <by-icon v-if="type === 'password' && password && !isClearable" :type="passwordIcon" @click="togglePasswordIcon"></by-icon>
           <by-icon v-if="search && !isClearable && !enterButton" type="search"></by-icon>
           <by-icon v-if="!!suffixIcon && !isClearable && !search" :type="suffixIcon"></by-icon>
           <slot name="suffix"></slot>
@@ -77,10 +78,12 @@
 const prefix = 'by-input'
 const prefix_ = 'by-textarea'
 export default {
-  name: 'by-input',
+  name: prefix,
   data () {
     return {
       isClearable: false,
+      passwordIcon: 'eye-close',
+      inputType: null,
       prevTextareaScrollHeight: null,
       initialTextareaHeight: null,
       textareaMinHeight: null,
@@ -90,7 +93,10 @@ export default {
     }
   },
   props: {
-    value: {},
+    value: {
+      type: [String, Number],
+      default: ''
+    },
     type: {
       type: String,
       default: 'text'
@@ -158,6 +164,10 @@ export default {
     },
     form: {
       type: String
+    },
+    password: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -208,13 +218,18 @@ export default {
       return this.$slots.prefix || !!this.prefixIcon
     },
     isSuffix () {
-      return !!this.suffixIcon || this.$slots.suffix || this.isClearable || (this.search && !this.enterButton)
+      return !!this.suffixIcon || this.$slots.suffix || this.isClearable || (this.search && !this.enterButton) || (this.type === 'password' && this.password)
     },
     isPrepend () {
       return this.$slots.prepend
     },
     isAppend () {
       return (this.search && !!this.enterButton) || this.$slots.append
+    }
+  },
+  watch: {
+    type () {
+      this.inputType = this.type
     }
   },
   methods: {
@@ -314,6 +329,15 @@ export default {
         this.textareaMinHeight = Math.min(temp_min, temp_max) * singleLineHeight + padding + border
         this.textareaMaxHeight = Math.max(temp_min, temp_max) * singleLineHeight + padding + border
       }
+    },
+    togglePasswordIcon () {
+      if (this.passwordIcon === 'eye') {
+        this.passwordIcon = 'eye-close'
+        this.inputType = 'password'
+      } else {
+        this.passwordIcon = 'eye'
+        this.inputType = 'text'
+      }
     }
   },
   mounted () {
@@ -324,6 +348,9 @@ export default {
         this.resizeTextarea()
       }
     })
+  },
+  created () {
+    this.inputType = this.type
   }
 }
 </script>
