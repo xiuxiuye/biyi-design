@@ -8,9 +8,6 @@
 const prefix = 'by-radio-group'
 export default {
   name: prefix,
-  model: {
-    event: 'change'
-  },
   props: {
     value: {
       type: [String, Number]
@@ -18,6 +15,14 @@ export default {
     vertical: {
       type: Boolean,
       default: false
+    },
+    button: {
+      type: Boolean,
+      default: false
+    },
+    size: {
+      type: String,
+      default: 'default'
     }
   },
   computed: {
@@ -25,9 +30,16 @@ export default {
       return [
         prefix,
         {
-          [`${prefix}-vertical`]: this.vertical
+          [`${prefix}-vertical`]: this.vertical,
+          [`${prefix}-button`]: this.button,
+          [`${prefix}-size-${this.size}`]: this.button && !!this.size
         }
       ]
+    }
+  },
+  methods: {
+    change () {
+      this.$emit('change')
     }
   }
 }

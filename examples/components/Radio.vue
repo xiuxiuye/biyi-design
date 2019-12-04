@@ -58,6 +58,41 @@
     <h4>Border</h4>
     <by-radio v-model="mesg" border>金斑蝶</by-radio>
     <by-radio v-model="mesg" disabled border>金斑蝶</by-radio>
+    <br><br>
+    <by-radio v-model="mesg" border size="large">金斑蝶</by-radio>
+    <by-radio v-model="mesg" disabled border>金斑蝶</by-radio>
+    <by-radio v-model="mesg" border size="small">金斑蝶</by-radio>
+    <br><br>
+    <by-radio-group v-model="Label">
+      <by-radio label="金斑蝶" border></by-radio>
+      <by-radio label="爪哇犀牛" border></by-radio>
+      <by-radio label="印度黑羚" disabled border></by-radio>
+    </by-radio-group>
+    <hr>
+    <h4>Button模式</h4>
+    <by-radio-group v-model="Label" button>
+      <by-radio label="金斑蝶"></by-radio>
+      <by-radio label="爪哇犀牛"></by-radio>
+      <by-radio label="印度黑羚" disabled></by-radio>
+    </by-radio-group>
+    <hr>
+
+    <h4>Size</h4>
+    <by-radio-group v-model="Label" button size="large">
+      <by-radio label="金斑蝶"></by-radio>
+      <by-radio label="爪哇犀牛"></by-radio>
+      <by-radio label="印度黑羚" disabled></by-radio>
+    </by-radio-group>
+    <by-radio-group v-model="Label" button>
+      <by-radio label="金斑蝶"></by-radio>
+      <by-radio label="爪哇犀牛"></by-radio>
+      <by-radio label="印度黑羚" disabled></by-radio>
+    </by-radio-group>
+    <by-radio-group v-model="Label" button size="small" @change="iconClick1">
+      <by-radio label="金斑蝶"></by-radio>
+      <by-radio label="爪哇犀牛"></by-radio>
+      <by-radio label="印度黑羚" disabled></by-radio>
+    </by-radio-group>
     <hr>
   </div>
 </template>
@@ -74,8 +109,11 @@ export default {
   methods: {
     iconClick () {
       console.log('icon clicked!')
+    },
+    iconClick1 () {
+      console.log('icon1 clicked!')
     }
-  },
+  }
 }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div :class="classes" @click="handleClick">
-    <span class="by-radio-copy">
+    <span class="by-radio-copy" v-if="nonbutton">
     </span>
     <input ref="radio" type="radio" :checked="checked">
     <slot>{{label || 'Radio'}}</slot>
@@ -45,8 +45,10 @@ export default {
         }
       },
       set (newValue) {
+        if (newValue == this.checked) return
         if (this.$parent.$options.name === 'by-radio-group') {
-          this.$parent.$emit('change', this.label)
+          this.$parent.$emit('input', this.label)
+          this.$parent.change()
         } else {
           this.$emit('change', true)
         }
@@ -64,6 +66,9 @@ export default {
           [`${prefix}-border-disabled`]: this.border && this.disabled
         }
       ]
+    },
+    nonbutton () {
+      return !this.$parent.button
     }
   },
   methods: {
