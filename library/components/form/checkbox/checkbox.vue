@@ -1,14 +1,15 @@
 <template>
   <div :class="classes" @click="handleClick">
-    <span class="by-radio-copy" v-if="nonbutton">
+    <span class="by-checkbox-copy">
+      <by-icon class="by-checkbox-copy-icon" type="check" size="8"></by-icon>
+      <input ref="by-checkbox" type="checkbox" :checked="checked">
     </span>
-    <input ref="radio" type="radio" :checked="checked">
-    <slot>{{label || 'Radio'}}</slot>
+    <slot>{{label || 'Checkbox'}}</slot>
   </div>
 </template>
 
 <script>
-const prefix = 'by-radio'
+const prefix = 'by-checkbox'
 export default {
   name: prefix,
   model: {
@@ -20,25 +21,17 @@ export default {
       default: false
     },
     label: {
-      type: [String, Number]
+      type: [String, Number, Boolean]
     },
     size: {
       type: String,
       default: 'default'
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    border: {
-      type: Boolean,
-      default: false
     }
   },
   computed: {
     checked: {
       get () {
-        if (this.$parent.$options.name === 'by-radio-group') {
+        if (this.$parent.$options.name === 'by-checkbox-group') {
           return this.label === this.$parent.value
         } else {
           return this.value
@@ -46,7 +39,7 @@ export default {
       },
       set (newValue) {
         if (newValue == this.checked) return
-        if (this.$parent.$options.name === 'by-radio-group') {
+        if (this.$parent.$options.name === 'by-checkbox-group') {
           this.$parent.$emit('input', this.label)
           this.$parent.change()
         } else {
@@ -59,23 +52,17 @@ export default {
         prefix,
         {
           [`${prefix}-size-${this.size}`]: !!this.size,
-          [`${prefix}-checked`]: this.checked,
-          [`${prefix}-disabled`]: this.disabled,
-          [`${prefix}-border`]: this.border,
-          [`${prefix}-border-checked`]: this.border && this.checked,
-          [`${prefix}-border-disabled`]: this.border && this.disabled
+          [`${prefix}-checked`]: this.checked
         }
       ]
-    },
-    nonbutton () {
-      return !this.$parent.button
     }
   },
   methods: {
     handleClick () {
-      if (this.disabled) return 
-      this.checked = true
+      this.checked = !this.checked
     }
   }
 }
 </script>
+
+<style lang="less"></style>

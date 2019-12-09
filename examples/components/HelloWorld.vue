@@ -9,6 +9,8 @@
     <router-link to="input">Input</router-link>
     <hr>
     <router-link to="radio">Radio</router-link>
+    <hr>
+    <router-link to="checkbox">Checkbox</router-link>
   </div>
 </template>
 

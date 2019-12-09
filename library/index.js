@@ -7,6 +7,7 @@ import Col from './components/grid/col'
 import Input from './components/form/input'
 import Radio from './components/form/radio'
 import RadioGroup from './components/form/radio-group'
+import Checkbox from './components/form/checkbox'
 
 
 const components = [
@@ -17,7 +18,8 @@ const components = [
   Col,
   Input,
   Radio,
-  RadioGroup
+  RadioGroup,
+  Checkbox
 ]
 
 const install = function (Vue, opts = {}) {

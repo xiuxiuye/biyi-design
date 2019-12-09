@@ -1,0 +1,92 @@
+.by-checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  &-copy {
+    position: relative;
+    display: inline-block;
+    margin-right: @base-gap * 4;
+    border: @border-width solid @border-color;
+    border-radius: @border-radius - .125rem;
+    transition: all 0.2s ease-in-out;
+
+    &-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      text-align: center;
+      font-weight: bold;
+      color: @deep-bg-color;
+      width: inherit;
+      height: inherit;
+      line-height: inherit;
+      border-radius: inherit;
+      transition: inherit;
+    }
+
+    input[type="checkbox"] {
+      opacity: 0;
+      cursor: pointer;
+    }
+  }
+
+  &-copy:hover,
+  &-copy:focus {
+    border-color: @primary-color;
+  }
+
+  &-size-default {
+    font-size: @basic-fsize;
+
+    .by-checkbox-copy {
+      width: @default-height / 2;
+      height: @default-height / 2;
+      line-height: @default-height / 2;
+    }
+  }
+
+  &-size-small {
+    font-size: @basic-fsize - 0.125rem;
+
+    .by-checkbox-copy {
+      width: @default-height / 2 - .25rem;
+      height: @default-height / 2 - .25rem;
+    }
+
+    // .by-radio-copy:after {
+    //   width: @default-height / 4 - .125rem;
+    //   height: @default-height / 4 - .125rem;
+    //   top: @default-height / 8 - @border-width * 2;
+    //   left: @default-height / 8 - @border-width * 2;
+    // }
+  }
+
+  &-size-large {
+    font-size: @basic-fsize + .125rem;
+
+    .by-checkbox-copy {
+      width: @default-height / 2 + .25rem;
+      height: @default-height / 2 + .25rem;
+    }
+
+    // .by-radio-copy:after {
+    //   width: @default-height / 4 + .125rem;
+    //   height: @default-height / 4 + .125rem;
+    //   top: @default-height / 8;
+    //   left: @default-height / 8;
+    // }
+  }
+
+  &-checked {
+    .by-checkbox-copy {
+      border-color: @primary-color;
+      
+      &-icon {
+        background-color: @primary-color;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  }
+}
