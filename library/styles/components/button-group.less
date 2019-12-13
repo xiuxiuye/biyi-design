@@ -1,26 +1,26 @@
-.by-btn-group {
+.by-button-group {
   display: inline-block;
   font-size: 0;
 
-  .by-btn {
+  .by-button {
     border-radius: 0;
   }
 
   &-normal {
-    .by-btn {
+    .by-button {
       height: @default-height;
     }
   }
 
   &-large {
-    .by-btn {
+    .by-button {
       height: @default-height + .5rem;
       font-size: @basic-fsize + .125rem;
     }
   }
 
   &-small {
-    .by-btn {
+    .by-button {
       height: @default-height - .5rem;
       font-size: @basic-fsize - .125rem;
       padding: 0 @base-gap * 6;
@@ -29,28 +29,28 @@
 
   // direction
   &-horizontal {
-    .by-btn {
+    .by-button {
       border-right-width: 0;
     }
   
-    .by-btn:hover,
-    .by-btn:focus,
-    .by-btn:active {
+    .by-button:hover,
+    .by-button:focus,
+    .by-button:active {
       border-right-width: @border-width;
     }
     
-    .by-btn:hover + .by-btn,
-    .by-btn:focus + .by-btn,
-    .by-btn:active + .by-btn {
+    .by-button:hover + .by-button,
+    .by-button:focus + .by-button,
+    .by-button:active + .by-button {
       border-left-width: 0;
     }
 
-    .by-btn:first-of-type {
+    .by-button:first-of-type {
       border-top-left-radius: @border-radius;
       border-bottom-left-radius: @border-radius;
     }
 
-    .by-btn:last-of-type {
+    .by-button:last-of-type {
       border-top-right-radius: @border-radius;
       border-bottom-right-radius: @border-radius;
       border-right-width: @border-width;
@@ -58,29 +58,29 @@
   }
 
   &-vertical {
-    .by-btn {
+    .by-button {
       display: block;
       border-bottom-width: 0;
     }
 
-    .by-btn:hover,
-    .by-btn:focus,
-    .by-btn:active {
+    .by-button:hover,
+    .by-button:focus,
+    .by-button:active {
       border-bottom-width: @border-width;
     }
     
-    .by-btn:hover + .by-btn,
-    .by-btn:focus + .by-btn,
-    .by-btn:active + .by-btn {
+    .by-button:hover + .by-button,
+    .by-button:focus + .by-button,
+    .by-button:active + .by-button {
       border-top-width: 0;
     }
 
-    .by-btn:first-of-type {
+    .by-button:first-of-type {
       border-top-left-radius: @border-radius;
       border-top-right-radius: @border-radius;
     }
 
-    .by-btn:last-of-type {
+    .by-button:last-of-type {
       border-bottom-left-radius: @border-radius;
       border-bottom-right-radius: @border-radius;
       border-bottom-width: @border-width;
@@ -88,36 +88,36 @@
   }
 
   &-normal-round {
-    .by-btn:first-of-type {
+    .by-button:first-of-type {
       border-top-left-radius: @default-height;
       border-bottom-left-radius: @default-height;
     }
 
-    .by-btn:last-of-type {
+    .by-button:last-of-type {
       border-top-right-radius: @default-height;
       border-bottom-right-radius: @default-height;
     }
   }
 
   &-large-round {
-    .by-btn:first-of-type {
+    .by-button:first-of-type {
       border-top-left-radius: @default-height + .5rem;
       border-bottom-left-radius: @default-height + .5rem;
     }
 
-    .by-btn:last-of-type {
+    .by-button:last-of-type {
       border-top-right-radius: @default-height + .5rem;
       border-bottom-right-radius: @default-height + .5rem;
     }
   }
 
   &-small-round {
-    .by-btn:first-of-type {
+    .by-button:first-of-type {
       border-top-left-radius: @default-height - .5rem;
       border-bottom-left-radius: @default-height - .5rem;
     }
 
-    .by-btn:last-of-type {
+    .by-button:last-of-type {
       border-top-right-radius: @default-height - .5rem;
       border-bottom-right-radius: @default-height - .5rem;
     }

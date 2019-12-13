@@ -83,7 +83,15 @@
     }
   }
 
+  &-border {
+    border: @border-width solid @border-color;
+    border-radius: @border-radius;
+    padding: @base-gap * 3 @base-gap * 6;
+  }
+
   &-checked {
+    border-color: @primary-color;
+
     .by-radio-copy {
       border-color: @primary-color;
     }
@@ -96,6 +104,8 @@
 
   &-disabled {
     cursor: not-allowed;
+    color: @disabled-color;
+    border-color: @border-color;
 
     .by-radio-copy {
       background-color: @background-color;
@@ -104,21 +114,6 @@
 
     .by-radio-copy:after {
       background-color: @disabled-color;
-    }
-  }
-
-  &-border {
-    border: @border-width solid @border-color;
-    border-radius: @border-radius;
-    padding: @base-gap * 3 @base-gap * 6;
-
-    &-checked {
-      border-color: @primary-color;
-    }
-
-    &-disabled {
-      border-color: @border-color;
-      background-color: @background-color;
     }
   }
 }

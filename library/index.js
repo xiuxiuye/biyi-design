@@ -8,6 +8,7 @@ import Input from './components/form/input'
 import Radio from './components/form/radio'
 import RadioGroup from './components/form/radio-group'
 import Checkbox from './components/form/checkbox'
+import CheckboxGroup from './components/form/checkbox-group'
 
 
 const components = [
@@ -19,7 +20,8 @@ const components = [
   Input,
   Radio,
   RadioGroup,
-  Checkbox
+  Checkbox,
+  CheckboxGroup
 ]
 
 const install = function (Vue, opts = {}) {

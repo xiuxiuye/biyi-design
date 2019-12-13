@@ -21,8 +21,22 @@
       color: @deep-bg-color;
       width: inherit;
       height: inherit;
-      line-height: inherit;
+      border: inherit;
       border-radius: inherit;
+      transition: inherit;
+    }
+
+    &-icon::after {
+      content: '';
+      border: 2px solid #fff;
+      border-left: 0;
+      border-top: 0;
+      width: 32%;
+      height: 64%;
+      position: absolute;
+      top: 14%;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg) scale(0);
       transition: inherit;
     }
 
@@ -43,7 +57,6 @@
     .by-checkbox-copy {
       width: @default-height / 2;
       height: @default-height / 2;
-      line-height: @default-height / 2;
     }
   }
 
@@ -54,13 +67,6 @@
       width: @default-height / 2 - .25rem;
       height: @default-height / 2 - .25rem;
     }
-
-    // .by-radio-copy:after {
-    //   width: @default-height / 4 - .125rem;
-    //   height: @default-height / 4 - .125rem;
-    //   top: @default-height / 8 - @border-width * 2;
-    //   left: @default-height / 8 - @border-width * 2;
-    // }
   }
 
   &-size-large {
@@ -70,22 +76,58 @@
       width: @default-height / 2 + .25rem;
       height: @default-height / 2 + .25rem;
     }
+  }
 
-    // .by-radio-copy:after {
-    //   width: @default-height / 4 + .125rem;
-    //   height: @default-height / 4 + .125rem;
-    //   top: @default-height / 8;
-    //   left: @default-height / 8;
-    // }
+  &-border {
+    border: @border-width solid @border-color;
+    border-radius: @border-radius;
+  }
+
+  &-border-default {
+    padding: @base-gap * 3 @base-gap * 6;
+  }
+
+  &-border-large {
+    padding: @base-gap * 4 @base-gap * 6;
+  }
+
+  &-border-small {
+    padding: @base-gap * 2 @base-gap * 6;
   }
 
   &-checked {
+    border-color: @primary-color;
+
     .by-checkbox-copy {
       border-color: @primary-color;
       
       &-icon {
         background-color: @primary-color;
         transform: translate(-50%, -50%) scale(1);
+      }
+
+      &-icon::after {
+        transform: translateX(-50%) rotate(45deg) scale(1);
+      }
+    }
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+    color: @disabled-color;
+    border-color: @border-color;
+
+    .by-checkbox-copy {
+      background-color: @background-color;
+      border-color: @border-color;
+
+      &-icon {
+        background-color: @background-color;
+        border-color: @border-color;
+      }
+
+      &-icon::after {
+        border-color: @disabled-color;
       }
     }
   }

@@ -1,18 +1,11 @@
-.by-radio-group {
-  .by-radio {
+.by-checkbox-group {
+  .by-checkbox {
     margin-right: @base-gap * 4;
-  }
-
-  &-vertical {
-    .by-radio {
-      display: block;
-      margin: @base-gap * 4 0;
-    }
   }
 
   &-button {
     font-size: 0;
-    .by-radio {
+    .by-checkbox {
       margin-right: 0;
       border: @border-width solid @border-color;
       border-right-width: 0;
@@ -24,8 +17,21 @@
         border-right-width: @border-width;
       }
 
-      &-checked + .by-radio {
+      &-checked + .by-checkbox {
         border-left-width: 0;
+        position: relative;
+      }
+
+      &-checked + .by-checkbox::after {
+        content: '';
+        display: block;
+        width: @border-width;
+        height: calc(100%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: @background-color;
+        z-index: inherit;
       }
 
       &-disabled {
@@ -34,12 +40,12 @@
       }
     }
 
-    .by-radio:first-of-type {
+    .by-checkbox:first-of-type {
       border-top-left-radius: @border-radius;
       border-bottom-left-radius: @border-radius;
     }
 
-    .by-radio:last-of-type {
+    .by-checkbox:last-of-type {
       border-right-width: @border-width;
       border-top-right-radius: @border-radius;
       border-bottom-right-radius: @border-radius;
@@ -47,21 +53,21 @@
   }
 
   &-size-default {
-    .by-radio {
-      padding: @base-gap * 3 @base-gap * 6;
+    .by-checkbox {
+      padding: @base-gap * 3 @base-gap * 8;
     }
   }
 
   &-size-large {
-    .by-radio {
-      padding: @base-gap * 4 @base-gap * 6;
+    .by-checkbox {
+      padding: @base-gap * 4 @base-gap * 8;
       font-size: @basic-fsize + .125rem;
     }
   }
 
   &-size-small {
-    .by-radio {
-      padding: @base-gap * 2 @base-gap * 6;
+    .by-checkbox {
+      padding: @base-gap * 2 @base-gap * 8;
       font-size: @basic-fsize - .125rem;
     }
   }

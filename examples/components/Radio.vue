@@ -83,11 +83,13 @@
       <by-radio label="爪哇犀牛"></by-radio>
       <by-radio label="印度黑羚" disabled></by-radio>
     </by-radio-group>
+    <br>
     <by-radio-group v-model="Label" button>
       <by-radio label="金斑蝶"></by-radio>
       <by-radio label="爪哇犀牛"></by-radio>
       <by-radio label="印度黑羚" disabled></by-radio>
     </by-radio-group>
+    <br>
     <by-radio-group v-model="Label" button size="small" @change="iconClick1">
       <by-radio label="金斑蝶"></by-radio>
       <by-radio label="爪哇犀牛"></by-radio>

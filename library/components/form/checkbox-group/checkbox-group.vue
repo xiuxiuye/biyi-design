@@ -5,16 +5,13 @@
 </template>
 
 <script>
-const prefix = 'by-radio-group'
+const prefix = 'by-checkbox-group'
 export default {
   name: prefix,
   props: {
     value: {
-      type: [String, Number]
-    },
-    vertical: {
-      type: Boolean,
-      default: false
+      type: Array,
+      default: []
     },
     button: {
       type: Boolean,
@@ -30,7 +27,6 @@ export default {
       return [
         prefix,
         {
-          [`${prefix}-vertical`]: this.vertical,
           [`${prefix}-button`]: this.button,
           [`${prefix}-size-${this.size}`]: this.button && !!this.size
         }
@@ -44,3 +40,5 @@ export default {
   }
 }
 </script>
+
+<style lang="less"></style>
