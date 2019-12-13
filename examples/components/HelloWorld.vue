@@ -11,6 +11,8 @@
     <router-link to="radio">Radio</router-link>
     <hr>
     <router-link to="checkbox">Checkbox</router-link>
+    <hr>
+    <router-link to="switch">Switch</router-link>
   </div>
 </template>
 
