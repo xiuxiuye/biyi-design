@@ -1,0 +1,17 @@
+/* animation for by-spin*/
+@keyframes by-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* animation for by-dropdown*/
+.by-dropdown-animation-enter-active,
+.by-dropdown-animation-leave-active {
+  transition: all .2s ease-in-out;
+}
+
+.by-dropdown-animation-enter,
+.by-dropdown-animation-leave-to {
+  transform: translateY(-10px);
+  opacity: 0;
+}

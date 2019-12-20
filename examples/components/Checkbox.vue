@@ -131,7 +131,6 @@
         <span>西瓜</span>
       </by-checkbox>
     </by-checkbox-group>
-    <br />
     <by-checkbox-group v-model="borders" button>
       <by-checkbox label="香蕉">
         <span>香蕉</span>
@@ -143,7 +142,6 @@
         <span>西瓜</span>
       </by-checkbox>
     </by-checkbox-group>
-    <br />
     <by-checkbox-group v-model="borders" button size="small">
       <by-checkbox label="香蕉">
         <span>香蕉</span>

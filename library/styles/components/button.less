@@ -120,6 +120,17 @@
   }
 
   // plain btn
+  &-default-plain:focus,
+  &-default-plain:hover {
+    border-color: @primary-color;
+    color: @primary-color;
+  }
+
+  &-default-plain:active {
+    border-color: lighten(@primary-color, 16%);
+    color: @primary-color;
+  }
+
   &-primary-plain {
     border-color: @primary-color;
     color: @primary-color;

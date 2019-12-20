@@ -1,0 +1,56 @@
+.by-select {
+  position: relative;
+  cursor: pointer;
+
+  .by-icon {
+    position: absolute;
+    top: 50%;
+    right: @base-gap * 4;
+    transform: translateY(-50%);
+    color: @sub-color;
+    transition: all .2s ease-in-out;
+  }
+
+  &-value {
+    height: 100%;
+    padding-right: @base-gap * 14;
+    padding-left: @base-gap * 4;
+    border: @border-width solid @border-color;
+    border-radius: @border-radius;
+    font-size: @basic-fsize;
+  }
+
+  .by-icon:hover + &-value,
+  &-value:hover {
+    border-color: @primary-color;
+  }
+
+  &-value:focus {
+    border-color: @primary-color;
+    outline: 0;
+  }
+
+  &-size-default {
+    height: @default-height;
+    line-height: @default-height - @border-width * 2;
+  }
+
+  &-size-large {
+    height: @default-height + .5rem;
+    line-height: @default-height + .5rem - @border-width * 2;
+  }
+
+  &-size-small {
+    height: @default-height - .5rem;
+    font-size: @basic-fsize - .125rem;
+    line-height: @default-height - .5rem - @border-width * 2;
+  }
+
+  .placehold {
+    color: @disabled-color;
+  }
+
+  &-icon-rotated {
+    transform: translateY(-50%) rotate(180deg) !important;
+  }
+}

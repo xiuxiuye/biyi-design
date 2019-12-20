@@ -44,6 +44,11 @@ const routes = [
     path: '/switch',
     name: 'switch',
     component: () => import('../components/Switch.vue')
+  },
+  {
+    path: '/select',
+    name: 'select',
+    component: () => import('../components/Select.vue')
   }
 ]
 

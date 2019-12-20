@@ -13,6 +13,8 @@
     <router-link to="checkbox">Checkbox</router-link>
     <hr>
     <router-link to="switch">Switch</router-link>
+    <hr>
+    <router-link to="select">Select</router-link>
   </div>
 </template>
 
