@@ -1,17 +1,25 @@
 .by-input {
   position: relative;
   font-size: @basic-fsize;
+  color: @content-color;
 
   input {
     display: inline-block;
     width: 100%;
-    height: 100%;
+    height: inherit;
     border: @border-width solid @border-color;
     border-radius: @border-radius;
     padding: 0 @base-gap * 4;
     font-size: inherit;
     transition: all 0.2s ease-in-out;
+    color: inherit;
   }
+
+  // 清楚ie浏览器下input自带的删除图标
+  input::-ms-clear {
+	  display: none !important;
+  }
+
 
   input:hover {
     border-color: @sub-color;
@@ -67,7 +75,7 @@
 
   &-prepend,
   &-append {
-    display: flex;
+    display: table;
   }
 
   &-prepend {
@@ -77,8 +85,8 @@
     }
 
     &-wrap {
-      display: flex;
-      align-items: center;
+      display: table-cell;
+      vertical-align: middle;
       border-top-left-radius: @border-radius;
       border-bottom-left-radius: @border-radius;
       padding: 0 @base-gap * 6;
@@ -98,11 +106,11 @@
     }
 
     &-wrap {
+      display: table-cell;
+      vertical-align: middle;
       border-top-right-radius: @border-radius;
       border-bottom-right-radius: @border-radius;
       padding: 0 @base-gap * 6;
-      display: flex;
-      align-items: center;
       border-width: @border-width @border-width @border-width 0;
       border-style: solid;
       border-color: @border-color;
@@ -147,7 +155,6 @@
 .by-textarea {
   position: relative;
   font-size: @basic-fsize;
-  font-family: @font-family;
 
   textarea {
     display: inline-block;
@@ -157,6 +164,8 @@
     padding: @base-gap * 4;
     font-size: inherit;
     font-family: inherit;
+    color: @content-color;
+    overflow: auto;
   }
 
   textarea:hover {
@@ -185,9 +194,6 @@
     bottom: @base-gap * 4;
     right: @base-gap * 4;
     font-size: @basic-fsize - .125rem;
-
-    &-width-suffix {
-      right: @base-gap * 14;
-    }
+    color: @content-color;
   }
 }
