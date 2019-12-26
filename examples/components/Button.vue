@@ -2,7 +2,7 @@
   <div>
     <hr>
     <h4>Size</h4>
-    <by-button size="large">Default</by-button>
+    <by-button size="large">按钮</by-button>
     <by-button>Default</by-button>
     <by-button size="small">Default</by-button>
     <hr>

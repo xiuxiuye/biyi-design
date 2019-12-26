@@ -4,6 +4,7 @@
   position: relative;
   transition: all ease-in-out .2s;
   color: @background-color;
+  line-height: @default-height / 16 * 11;
 
   &-off {
     background-color: @disabled-color;
@@ -73,6 +74,7 @@
   &-size-small {
     width: @default-height / 8 * 8;
     height: @default-height / 16 * 8;
+    line-height: @default-height / 16 * 8;
     border-radius: @default-height / 16 * 8;
 
     .by-switch-ball {
@@ -108,10 +110,9 @@
   }
 
   &-slot {
-    display: block;
+    display: inline-block;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    height: 100%;
     z-index: inherit;
     font-size: @basic-fsize - .125rem;
   }

@@ -9,12 +9,14 @@
   &-normal {
     .by-button {
       height: @default-height;
+      line-height: @default-height - @border-width * 2;
     }
   }
 
   &-large {
     .by-button {
       height: @default-height + .5rem;
+      line-height: @default-height + .5rem - @border-width * 2;
       font-size: @basic-fsize + .125rem;
     }
   }
@@ -22,6 +24,7 @@
   &-small {
     .by-button {
       height: @default-height - .5rem;
+      line-height: @default-height - .5rem - @border-width * 2;
       font-size: @basic-fsize - .125rem;
       padding: 0 @base-gap * 6;
     }

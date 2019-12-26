@@ -2,8 +2,10 @@
   <div :class="classes" :style="styles" @click="handleClick">
     <span :class="ballClasses"></span>
     <span :class="slotClasses">
-      <slot v-if="this.value" name="on"></slot>
-      <slot v-else name="off"></slot>
+      <span class="by-switch-slot-inner">
+        <slot v-if="this.value" name="on"></slot>
+        <slot v-else name="off"></slot>
+      </span>
     </span>
     <input type="hidden" :value="value">
   </div>
