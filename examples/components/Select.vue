@@ -1,7 +1,7 @@
 <template>
   <div>
     <h4>基本用法{{model1}}</h4>
-    <by-select v-model="model1">
+    <by-select v-model="model1" multiple>
       <by-option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</by-option>
     </by-select>
     <br />

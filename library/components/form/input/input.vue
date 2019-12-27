@@ -30,7 +30,7 @@
           @keypress="handleKeypress">
         <span :class="wordLimitClasses" v-if="showWordLimit">{{value.length}}/{{maxlength}}</span>
         <span class="by-input-suffix-icon" v-if="isSuffix" @click="clickIcon('suffix')">
-          <by-icon v-if="isClearable" type="close-circle-fill" @click="clearInput"></by-icon>
+          <by-icon v-if="isClearable" type="close-circle-fill" @click="handleClear"></by-icon>
           <by-icon v-if="type === 'password' && password && !isClearable" :type="passwordIcon" @click="togglePasswordIcon"></by-icon>
           <by-icon v-if="search && !isClearable && !enterButton" type="search"></by-icon>
           <by-icon v-if="!!suffixIcon && !isClearable && !search" :type="suffixIcon"></by-icon>
@@ -266,8 +266,9 @@ export default {
     hideClearBtn () {
       this.isClearable = false
     },
-    clearInput () {
+    handleClear () {
       this.$emit('input', '')
+      this.$emit('clear')
     },
     clickIcon (tag) {
       if (tag === 'suffix' && this.isClearable) return
