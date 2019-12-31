@@ -1,7 +1,7 @@
 <template>
   <div>
     <h4>单独使用</h4>
-    <by-radio v-model="mesg"></by-radio>
+    <by-radio v-model="mesg" @change="handleChange"></by-radio>
     <br>
     {{mesg}}
     <hr>
@@ -20,7 +20,7 @@
     <br>
     {{Label}}
     <br>
-    <by-radio-group v-model="Label2">
+    <by-radio-group v-model="Label2" @change="handleChange">
       <by-radio label="apple">
         <by-icon type="apple"></by-icon>
         <span>apple</span>
@@ -49,7 +49,7 @@
     <br>
     <hr>
     <h4>Vertical</h4>
-    <by-radio-group v-model="Label" vertical>
+    <by-radio-group v-model="Label" vertical button>
       <by-radio label="金斑蝶"></by-radio>
       <by-radio label="爪哇犀牛"></by-radio>
       <by-radio label="印度黑羚" disabled></by-radio>
@@ -114,6 +114,9 @@ export default {
     },
     iconClick1 () {
       console.log('icon1 clicked!')
+    },
+    handleChange (value) {
+      console.log(value)
     }
   }
 }

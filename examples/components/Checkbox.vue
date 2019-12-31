@@ -1,7 +1,12 @@
 <template>
   <div>
-    <h4>Change事件</h4>
-    <by-checkbox v-model="mesg" @change="onchange"></by-checkbox>
+    <h4>indeterminate</h4>
+    <by-checkbox v-model="mesg" :indeterminate="indeterminate"></by-checkbox>
+    <br />
+    {{mesg}}
+    <hr />
+    <h4>Change事件(测试true-value和false-value)</h4>
+    <by-checkbox v-model="mesg" true-value="1" @change="onchange"></by-checkbox>
     <br />
     {{mesg}}
     <hr />
@@ -162,7 +167,8 @@
 export default {
   data() {
     return {
-      mesg: false,
+      indeterminate: true,
+      mesg: true,
       Label: "爪哇犀牛",
       Label2: "windows",
       social: ["facebook", "twitter"],
@@ -176,6 +182,14 @@ export default {
     groupChange (value) {
       console.log(value)
     }
+  },
+  mounted () {
+    setTimeout(() => {
+      this.indeterminate = false
+    },3000)
+    setTimeout(() => {
+      this.indeterminate = true
+    },5000)
   }
 };
 </script>

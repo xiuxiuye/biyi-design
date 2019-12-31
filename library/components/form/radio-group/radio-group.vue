@@ -30,7 +30,7 @@ export default {
       return [
         prefix,
         {
-          [`${prefix}-vertical`]: this.vertical,
+          [`${prefix}-vertical`]: this.vertical && !this.button,
           [`${prefix}-button`]: this.button,
           [`${prefix}-size-${this.size}`]: this.button && !!this.size
         }
@@ -38,8 +38,8 @@ export default {
     }
   },
   methods: {
-    change () {
-      this.$emit('change', this.value)
+    change (value) {
+      this.$emit('change', value)
     }
   }
 }

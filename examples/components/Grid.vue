@@ -1,14 +1,15 @@
 <template>
   <div>
+    <hr>
     <h4>Span</h4>
     <by-row class="row1">
-      <by-col span="12" class="col odd"><div>col-6</div></by-col>
-      <by-col span="12" class="col even"><div>col-6</div></by-col>
+      <by-col span="12" class="col odd"><div>col-12</div></by-col>
+      <by-col span="12" class="col even"><div>col-12</div></by-col>
     </by-row>
     <by-row class="row1">
-      <by-col span="8" class="col odd"><div>col-6</div></by-col>
-      <by-col span="8" class="col even"><div>col-6</div></by-col>
-      <by-col span="8" class="col odd"><div>col-6</div></by-col>
+      <by-col span="8" class="col odd"><div>col-8</div></by-col>
+      <by-col span="8" class="col even"><div>col-8</div></by-col>
+      <by-col span="8" class="col odd"><div>col-8</div></by-col>
     </by-row>
     <by-row class="row1">
       <by-col span="6" class="col odd"><div>col-6</div></by-col>
@@ -114,7 +115,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .row1 {
   margin: 8px 0;
   background: yellow;

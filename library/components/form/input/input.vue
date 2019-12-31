@@ -155,8 +155,8 @@ export default {
       default: false
     },
     autocomplete: {
-      type: Boolean,
-      default: false
+      type: String,
+      default: 'off'
     },
     number: {
       type: Boolean,
@@ -245,20 +245,20 @@ export default {
     handleChange () {
       this.$emit('change', this.number ? Number(event.target.value) : event.target.value)
     },
-    handleFoucus () {
-      this.$emit('focus') 
+    handleFoucus (event) {
+      this.$emit('focus', event) 
     },
-    handleBlur () {
-      this.$emit('blur')
+    handleBlur (event) {
+      this.$emit('blur', event)
     },
-    handleKeyup () {
-      this.$emit('keyup')
+    handleKeyup (event) {
+      this.$emit('keyup', event)
     },
-    handleKeydown () {
-      this.$emit('keydown')
+    handleKeydown (event) {
+      this.$emit('keydown', event)
     },
-    handleKeypress () {
-      this.$emit('keypress')
+    handleKeypress (event) {
+      this.$emit('keypress', event)
     },
     showClearBtn () {
       this.isClearable = this.clearable && !!this.value
@@ -277,11 +277,11 @@ export default {
     },
     clickSearch () {
       if (this.search && !this.$slots.append) {
-        this.$emit('search') 
+        this.$emit('search', this.value) 
       }
     },
-    handleEnter () {
-      this.$emit('enter')
+    handleEnter (event) {
+      this.$emit('enter', event)
       this.clickSearch()
     },
     resizeTextarea () {
@@ -338,6 +338,20 @@ export default {
       } else {
         this.passwordIcon = 'eye'
         this.inputType = 'text'
+      }
+    },
+    focus () {
+      if (this.type === 'textarea') {
+        this.$refs.textarea.focus()
+      } else {
+        this.$refs.input.focus()
+      }
+    },
+    blur () {
+      if (this.type === 'textarea') {
+        this.$refs.textarea.blur()
+      } else {
+        this.$refs.input.blur()
       }
     }
   },

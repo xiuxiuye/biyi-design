@@ -1,7 +1,7 @@
 <template>
   <div :class="classes" @click="handleClick">
     <span class="by-checkbox-copy" v-if="nonbutton">
-      <span class="by-checkbox-copy-icon"></span>
+      <span :class="copyClasses"></span>
       <input ref="by-checkbox" type="checkbox" :checked="checked">
     </span>
     <slot>{{label || 'Checkbox'}}</slot>
@@ -17,7 +17,15 @@ export default {
   },
   props: {
     value: {
-      type: Boolean,
+      type: [String, Number, Boolean],
+      default: false
+    },
+    trueValue: {
+      type: [String, Number, Boolean],
+      default: true
+    },
+    falseValue: {
+      type: [String, Number, Boolean],
       default: false
     },
     label: {
@@ -35,9 +43,9 @@ export default {
       type: Boolean,
       default: false
     },
-    size: {
-      type: String,
-      default: 'default'
+    indeterminate: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -46,7 +54,7 @@ export default {
         if (this.$parent.$options.name === 'by-checkbox-group') {
           return this.$parent.value.includes(this.label)
         } else {
-          return this.value
+          return this.value === this.trueValue
         }
       },
       set (newValue) {
@@ -69,7 +77,7 @@ export default {
           this.$parent.$emit('input', this.$parent.value)
           this.$parent.change()
         } else {
-          this.$emit('change', newValue)
+          this.$emit('change', newValue ? this.trueValue : this.falseValue)
         }
       }
     },
@@ -86,6 +94,14 @@ export default {
         }
       ]
     },
+    copyClasses () {
+      return [
+        {
+          ['by-checkbox-copy-indeterminate']: this.indeterminate,
+          ['by-checkbox-copy-checked']: !this.indeterminate
+        }
+      ]
+    },
     nonbutton () {
       return !this.$parent.button
     }
@@ -93,6 +109,7 @@ export default {
   methods: {
     handleClick () {
       if (this.disabled) return
+      if (this.indeterminate) return
       this.checked = !this.checked
     }
   }

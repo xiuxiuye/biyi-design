@@ -48,7 +48,7 @@ export default {
         if (newValue == this.checked) return
         if (this.$parent.$options.name === 'by-radio-group') {
           this.$parent.$emit('input', this.label)
-          this.$parent.change()
+          this.$parent.change(this.label)
         } else {
           this.$emit('change', newValue)
         }

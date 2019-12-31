@@ -1,17 +1,17 @@
 <template>
   <div>
-    <hr>
-    <h4>Size</h4>
-    <by-button size="large">按钮</by-button>
-    <by-button>Default</by-button>
-    <by-button size="small">Default</by-button>
-    <hr>
     <h4>Type</h4>
     <by-button type="default">Default</by-button>
     <by-button type="primary">Default</by-button>
     <by-button type="success">Default</by-button>
     <by-button type="error">Default</by-button>
     <by-button type="warning">Default</by-button>
+    <hr>
+    <hr>
+    <h4>Size</h4>
+    <by-button size="large">Default</by-button>
+    <by-button>Default</by-button>
+    <by-button size="small">Default</by-button>
     <hr>
     <h4>Plain</h4>
     <by-button type="default" plain>Default</by-button>
@@ -20,21 +20,21 @@
     <by-button type="error" plain>Default</by-button>
     <by-button type="warning" plain>Default</by-button>
     <hr>
-    <h4>Circle</h4>
-    <by-button type="primary" circle icon="apple-fill"></by-button>
-    <by-button type="success" circle icon="twitter"></by-button>
-    <by-button type="error" circle size="large" icon="QQ"></by-button>
-    <by-button type="warning" circle size="small" icon="wechat-fill"></by-button>
+    <h4>circle</h4>
+    <by-button type="primary" shape="circle" icon="apple-fill"></by-button>
+    <by-button type="success" shape="circle" icon="twitter"></by-button>
+    <by-button type="error" shape="circle" size="large" icon="QQ"></by-button>
+    <by-button type="warning" shape="circle" size="small" icon="wechat-fill"></by-button>
     <hr>
     <h4>Round</h4>
-    <by-button size="large" round>Default</by-button>
-    <by-button round>Default</by-button>
-    <by-button size="small" round>Default</by-button>
+    <by-button size="large" shape="round">Default</by-button>
+    <by-button shape="round">Default</by-button>
+    <by-button size="small" shape="round">Default</by-button>
     <hr>
     <h4>Icon</h4>
-    <by-button type="primary" circle icon="search"></by-button>
+    <by-button type="primary" shape="circle" icon="search"></by-button>
     <by-button type="primary" icon="search">Search</by-button>
-    <by-button type="primary" icon="search" round>Search</by-button>
+    <by-button type="primary" icon="search" shape="round">Search</by-button>
     <by-button type="primary">
       <by-icon type="search"></by-icon>
       Search
@@ -60,6 +60,8 @@
     <hr>
     <h4>Loading</h4>
     <by-button type="primary" loading>Loading</by-button>
+    <by-button type="primary" loading loading-icon="spinner-a">Loading</by-button>
+    <by-button type="primary" loading loading-icon="spinner-a" loading-action="pulse">Loading</by-button>
     <hr>
     <h3>Button Group</h3>
     <by-button-group>

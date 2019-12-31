@@ -1,5 +1,5 @@
 <template>
-  <li :class="classes" @click="handleClick">
+  <li :class="classes" @click.stop="handleClick">
     <slot>{{label || value}}</slot>
     <by-icon v-if="selected" class="by-option-selected-icon" type="check"></by-icon>
   </li>
@@ -42,6 +42,8 @@ export default {
     handleClick () {
       this.currentSelected = true
       this.$parent.handleChange(this.value)
+      this.$parent.setOptionCurrentSelected(this.value)
+      this.$parent.handleClick('option')
     }
   }
 }

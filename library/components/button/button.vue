@@ -26,13 +26,8 @@ export default {
       type: Boolean,
       default: false
     },
-    circle: {
-      type: Boolean,
-      default: false
-    },
-    round: {
-      type: Boolean,
-      default: false
+    shape: {
+      type: String
     },
     icon: {
       type: String
@@ -69,9 +64,9 @@ export default {
         this.plain ? `${prefix}-${this.type}-plain` : `${prefix}-${this.type}`,
         `${prefix}-${this.size}`,
         {
-          [`${prefix}-circle`]: this.circle,
-          [`${prefix}-${this.size}-circle`]: this.circle,
-          [`${prefix}-${this.size}-round`]: this.round && !this.circle,
+          [`${prefix}-circle`]: this.shape === 'circle',
+          [`${prefix}-${this.size}-circle`]: this.shape === 'circle',
+          [`${prefix}-${this.size}-round`]: this.shape === 'round',
           [`${prefix}-long`]: this.long,
           [`${prefix}-disabled`]: this.disabled,
           [`${prefix}-loading`]: this.loading

@@ -12,34 +12,59 @@
     border-radius: @border-radius - .125rem;
     transition: all .2s ease-in-out;
 
-    &-icon {
+    &-checked {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) scale(0);
       width: inherit;
       height: inherit;
+      border: @border-width solid @primary-color;
       border-radius: inherit;
       transition: inherit;
     }
 
-    &-icon::after {
+    &-checked::after {
       content: '';
+      display: block;
       border: @border-width * 2 solid @background-color;
       border-left: 0;
       border-top: 0;
       width: 32%;
-      height: 64%;
+      height: 66%;
       position: absolute;
-      top: 14%;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%) rotate(45deg) scale(0);
+      transform: translate(-50%, -50%) rotate(45deg) scale(0);
+      transition: inherit;
+    }
+
+    &-indeterminate {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: inherit;
+      height: inherit;
+      border-radius: inherit;
+      transition: inherit;
+      background-color: @primary-color;
+    }
+
+    &-indeterminate::after {
+      content: '';
+      width: 64%;
+      height: @border-width * 2;
+      background-color: @background-color;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       transition: inherit;
     }
 
     input[type="checkbox"] {
-      opacity: 0;
-      cursor: pointer;
+      display: none;
     }
   }
 
@@ -98,13 +123,13 @@
     .by-checkbox-copy {
       border-color: @primary-color;
       
-      &-icon {
+      &-checked {
         background-color: @primary-color;
         transform: translate(-50%, -50%) scale(1);
       }
 
-      &-icon::after {
-        transform: translateX(-50%) rotate(45deg) scale(1);
+      &-checked::after {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1);
       }
     }
   }
@@ -115,16 +140,26 @@
     border-color: @border-color;
 
     .by-checkbox-copy {
-      background-color: @background-color;
+      background-color: @divider-color;
       border-color: @border-color;
 
-      &-icon {
-        background-color: @background-color;
-        border-color: @border-color;
+      &-checked {
+        background-color: inherit;
+        border: inherit;
       }
 
-      &-icon::after {
+      &-checked::after {
+        cursor: not-allowed;
+        background-color: inherit;
         border-color: @disabled-color;
+      }
+
+      &-indeterminate {
+        background-color: inherit;
+      }
+  
+      &-indeterminate::after {
+        background-color: @disabled-color;
       }
     }
   }

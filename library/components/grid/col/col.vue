@@ -90,7 +90,7 @@ export default {
           } else {
             return false
           }
-          break;
+          break
         case 'push':
           if (typeof react === 'number') {
             return false
@@ -99,7 +99,7 @@ export default {
           } else {
             return false
           }
-          break;
+          break
         case 'pull':
           if (typeof react === 'number') {
             return false
@@ -108,7 +108,7 @@ export default {
           } else {
             return false
           }
-          break;
+          break
         case 'offset':
           if (typeof react === 'number') {
             return false
@@ -117,9 +117,9 @@ export default {
           } else {
             return false
           }
-          break;
+          break
         default:
-          break;
+          break
       }
     }
   }
