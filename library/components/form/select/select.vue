@@ -1,22 +1,25 @@
 <template>
-  <div class="by-select">
-    <by-icon :class="iconClasses" :type="iconSolid ? 'caret-down' : 'down'" size="12" @click="handleClick"></by-icon>
-    <div :class="classes" tabindex="0" @click.stop="handleClick" @blur="handleBlur">
+  <div :class="classes" tabindex="0" @click="handleClick" @blur="handleBlur">
+    <input type="hidden">
+    <div class="by-select-selection">
+      <by-icon :class="iconClasses" :type="icon" size="12"></by-icon>
       <template v-if="valueSelected.length > 0">
         <span :class="tagClasses" v-for="(item, index) in valueSelected" :key="`by-select-value-${index}`">
-          <span class="by-select-tag-lable">{{item}}</span>
-          <by-icon class="by-select-tag-close" type="close" size="12"></by-icon>
+          <span class="by-select-tag-inner">
+            <span class="by-select-tag-lable">{{item.label}}</span>
+            <by-icon v-if="multiple" class="by-select-tag-close" type="close" size="12" @click.stop="removeTagSelected(item.value)"></by-icon>
+          </span>
         </span>
       </template>
-      <span v-else class="placehold">{{placehold}}</span>
-      <transition name="by-dropdown-animation">
-        <div class="by-dropdown-wrap" v-show="isOptionsOpened">
-          <ul class="by-dropdown-list">
-            <slot></slot>
-          </ul>
-        </div>
-      </transition>
+      <span v-else class="by-select-selection-tag by-select-placehold">{{placehold}}</span>
     </div>
+    <transition name="by-dropdown-animation">
+      <div class="by-dropdown-wrap by-select-dropdown" v-show="isOptionsOpened">
+        <ul class="by-dropdown-list">
+          <slot></slot>
+        </ul>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -26,7 +29,7 @@ export default {
   name: prefix,
   data () {
     return {
-      isOptionsOpened: true,
+      isOptionsOpened: false,
       valueSelected: []
     }
   },
@@ -39,9 +42,9 @@ export default {
       type: String,
       default: 'default'
     },
-    iconSolid: {
-      type: Boolean,
-      default: false
+    icon: {
+      type: String,
+      default: 'down'
     },
     placehold: {
       type: String,
@@ -59,7 +62,7 @@ export default {
   computed: {
     classes () {
       return [
-        `${prefix}-value`,
+        `${prefix}`,
         {
           [`${prefix}-size-${this.size}`]: !!this.size
         }
@@ -74,12 +77,12 @@ export default {
       ]
     },
     tagClasses () {
-      return {
-
-        // 多选时设置标签显示
-        // 'by-select-tag'
-        // [`${prefix}-value-tag-selected`]: this.multiple
-      }
+      return [
+        `${prefix}-selection-tag`,
+        {
+          [`${prefix}-selection-tag-multiple`]: this.multiple
+        }
+      ]
     }
   },
   watch: {
@@ -96,6 +99,9 @@ export default {
     },
     handleBlur () {
       this.isOptionsOpened = false
+    },
+    removeTagSelected (value) {
+      this.handleChange(value)
     },
     handleChange (newValue) {
       const isArray = this.value instanceof Array
@@ -150,19 +156,19 @@ export default {
           const child = childrenMap.get(this.value[j])
           if (child !== undefined) {
             child.selected = true
-            tempSelected.push(child.label ? child.label : child.$el.innerText)
+            tempSelected.push({value: child.value, label: child.label ? child.label : child.$el.innerText})
           }
         }
       } else {
         const child = childrenMap.get(this.value)
         if (child !== undefined) {
           child.selected = true
-          tempSelected.push(child.label ? child.label : child.$el.innerText)
+          tempSelected.push({value: child.value, label: child.label ? child.label : child.$el.innerText})
         }
       }
       this.valueSelected = tempSelected
-      console.log('====================')
-      console.log(this.valueSelected)
+      // console.log('====================')
+      // console.log(this.valueSelected)
     }
   },
   mounted () {

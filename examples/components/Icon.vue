@@ -10,7 +10,7 @@
     <by-icon type="twitter" size="16"></by-icon>
     <by-icon type="twitter" size="32"></by-icon>
     <by-icon type="twitter" :size="48"></by-icon>
-    <by-icon type="twitter" :size="64"></by-icon>
+    <by-icon type="twitter" :size="64" @click="hanldeClick"></by-icon>
     <hr>
     <h4>Color</h4>
     <by-icon type="twitter" color="red"></by-icon>
@@ -63,6 +63,11 @@ export default {
     return {
       icons: icons
     }
+  },
+  methods: {
+    hanldeClick () {
+      alert(1)
+    } 
   }
 }
 </script>

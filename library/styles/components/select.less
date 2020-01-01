@@ -2,63 +2,74 @@
   position: relative;
   cursor: pointer;
 
-  &-icon {
-    position: absolute;
-    top: 50%;
-    right: @base-gap * 4;
-    transform: translateY(-50%);
-    color: @sub-color;
-    transition: all .2s ease-in-out;
-  }
-
-  &-value {
-    height: 100%;
+  &-selection {
+    flex: auto;
     padding-right: @base-gap * 14;
     padding-left: @base-gap * 4;
     border: @border-width solid @border-color;
     border-radius: @border-radius;
-    font-size: @basic-fsize;
+    display: flex;
+    flex-wrap: wrap;
     position: relative;
+
+    .by-select-icon {
+      position: absolute;
+      top: 50%;
+      right: @base-gap * 4;
+      transform: translateY(-50%);
+      color: @sub-color;
+      transition: all .2s ease-in-out;
+    }
+
+    .by-select-icon-rotated {
+      transform: translateY(-50%) rotate(180deg) !important;
+    }
+
+    &-tag {
+      display: flex;
+      align-items: center;
+    }
     
-    &-tag-selected {
-      border: @border-width solid @border-color;
-      border-radius: @border-radius;
-      padding: 4px 4px;
+    &-tag-multiple {
+      margin-right: @base-gap * 2;
+
+      .by-select-tag-inner {
+        border: @border-width solid @border-color;
+        border-radius: @border-radius;
+        padding: @base-gap * 2;
+      }
+    }
+
+    .by-select-placehold {
+      color: @disabled-color;
     }
   }
 
-  .by-icon:hover + &-value,
-  &-value:hover {
-    border-color: @primary-color;
-  }
-
-  &-value:focus {
-    border-color: @primary-color;
-    outline: 0;
-  }
-
   &-size-default {
-    height: @default-height;
-    line-height: @default-height - @border-width * 2;
+    .by-select-selection {
+      &-tag {
+        height: @default-height - @border-width * 2;
+        font-size: @basic-fsize;
+      }
+    }
   }
 
   &-size-large {
-    height: @default-height + .5rem;
-    line-height: @default-height + .5rem - @border-width * 2;
+    .by-select-selection {
+      &-tag {
+        height: @default-height + .5rem - @border-width * 2;
+        font-size: @basic-fsize + .125rem;
+      }
+    }
   }
 
   &-size-small {
-    height: @default-height - .5rem;
-    font-size: @basic-fsize - .125rem;
-    line-height: @default-height - .5rem - @border-width * 2;
-  }
-
-  .placehold {
-    color: @disabled-color;
-  }
-
-  &-icon-rotated {
-    transform: translateY(-50%) rotate(180deg) !important;
+    .by-select-selection {
+      &-tag {
+        height: @default-height - .5rem - @border-width * 2;
+        font-size: @basic-fsize - .125rem;
+      }
+    }
   }
 
   .by-option-selected {
@@ -76,5 +87,18 @@
 
   .by-option-current-selected {
     background-color: @divider-color;
+  }
+}
+
+.by-select:hover {
+  .by-select-selection {
+    border-color: @primary-color;
+  }
+}
+
+.by-select:focus {
+  outline: 0;
+  .by-select-selection {
+    border-color: @primary-color;
   }
 }

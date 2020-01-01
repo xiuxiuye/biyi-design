@@ -1,7 +1,12 @@
 <template>
   <div>
     <h4>基本用法{{model1}}</h4>
-    <by-select v-model="model1" multiple>
+    <by-select v-model="model1" style="width: 300px;">
+      <by-option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</by-option>
+    </by-select>
+    <br />
+    <h4>多选{{model2}}</h4>
+    <by-select v-model="model2" multiple style="width: 300px;">
       <by-option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</by-option>
     </by-select>
     <br />
@@ -49,7 +54,8 @@ export default {
           label: "Canberra"
         }
       ],
-      model1: ["London"]
+      model1: "London",
+      model2: ["London"]
     };
   },
   methods: {},
