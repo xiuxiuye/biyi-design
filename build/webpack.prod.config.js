@@ -7,7 +7,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 module.exports = merge(baseConfig, {
   mode: 'production',
   entry: {
-    main: './library/index.js'
+    biyi: './lib/index.js'
   },
   output: {
     // 以原始文件名的输出文件名

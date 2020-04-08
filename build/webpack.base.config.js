@@ -1,6 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const devMode = process.env.NODE_ENV !== 'production'
+const path = require('path')
 
 module.exports = {
   module: {
@@ -23,7 +24,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.less$/,
+        test: /\.scss$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -32,7 +33,7 @@ module.exports = {
             }
           },
           'css-loader',
-          'less-loader'
+          'sass-loader'
         ]
       },
       // 图片文件处理
@@ -70,6 +71,15 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: 'babel-loader'
+      },
+      {
+        test: /\.js$/,
+        loader: 'eslint-loader',
+        enforce: "pre",
+        include: [path.resolve(__dirname, '../lib')], // 指定检查的目录
+        options: { // 这里的配置项参数将会被传递到 eslint 的 CLIEngine 
+            formatter: require('eslint-friendly-formatter') // 指定错误报告的格式规范
+        }
       }
     ]
   },
